@@ -17,7 +17,12 @@ class PostController extends Controller
         $post=new Post();
         $post->title=$request->title;
         $post->description=$request->description;
-        $post->image_url=$request->file;
+
+        $name = time() . '.jpg';
+        $img=$request->file;
+        $img->move(public_path('/paylasım/resim'),$name);
+        $post->image_url = '/paylasım/resim' . '/' . $name;
+
         $post->save();
         return redirect()->route('anasayfa');
     }

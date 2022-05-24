@@ -17,7 +17,7 @@ class Homepage extends Controller
 {
 
     public function index(){
-        $posts=Post::paginate(2);
+        $posts=Post:: orderBy("id","DESC")->paginate(2);
         $abouts=About::all();
 
 
