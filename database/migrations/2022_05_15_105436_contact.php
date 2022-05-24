@@ -19,6 +19,10 @@ class Contact extends Migration
             $table->string('email');
             $table->string('subject');
             $table->string('message');
+            $table->string('myPhone');
+            $table->string('myAdress');
+            $table->string('myEmail');
+
 
             $table->timestamps();
         });

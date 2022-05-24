@@ -5,23 +5,25 @@
     <!-- Contact Start -->
 
     <div class="container bg-white pt-5">
+        @foreach($contacts as $contact)
         <div class="row px-3 pb-2">
             <div class="col-sm-4 text-center mb-3">
                 <i class="fa fa-2x fa-map-marker-alt mb-3 text-primary"></i>
-                <h4 class="font-weight-bold">Address</h4>
-                <p>123 Street, New York, USA</p>
+                <h4 class="font-weight-bold">Adres</h4>
+                <p>{{$contact->myAdress}}</p>
             </div>
             <div class="col-sm-4 text-center mb-3">
                 <i class="fa fa-2x fa-phone-alt mb-3 text-primary"></i>
-                <h4 class="font-weight-bold">Phone</h4>
-                <p>+012 345 6789</p>
+                <h4 class="font-weight-bold">Telefon Numarası</h4>
+                <p>{{$contact->myPhone}}</p>
             </div>
             <div class="col-sm-4 text-center mb-3">
                 <i class="far fa-2x fa-envelope mb-3 text-primary"></i>
                 <h4 class="font-weight-bold">Email</h4>
-                <p>info@example.com</p>
+                <p>{{$contact->myEmail}}</p>
             </div>
         </div>
+        @endforeach
         <div class="col-md-12 pb-5">
             <div class="contact-form">
                 <div id="success"></div>
