@@ -3,6 +3,7 @@
     <div class="wrapper">
         <div class="content">
     <!-- Contact Start -->
+
     <div class="container bg-white pt-5">
         <div class="row px-3 pb-2">
             <div class="col-sm-4 text-center mb-3">
@@ -50,5 +51,6 @@
     </div>
     <!-- Contact End -->
     </div>
+
     </div>
 @endsection
