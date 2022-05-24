@@ -75,7 +75,7 @@
                             <p>
                                 {{$post->description}}
                             </p>
-                            <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                            <a href="{{route('deletePost',$post->id)}}" class="btn btn-lg btn-outline-light mt-4">Sil</a>
                         </div>
                     </div>
 

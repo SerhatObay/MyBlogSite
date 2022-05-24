@@ -15,7 +15,7 @@ class PostController extends Controller
 
     public function create(Request $request){
         $post=new Post();
-        $post->title=$request->title;
+        $post->title=strip_tags($request->title);
         $post->description=$request->description;
 
         $name = time() . '.jpg';
@@ -25,5 +25,13 @@ class PostController extends Controller
 
         $post->save();
         return redirect()->route('anasayfa');
+    }
+
+    public function remove($silinecek_id){
+
+      $gonderi=  Post::where("id",$silinecek_id)->first();
+      $gonderi->delete();
+        return redirect()->route('anasayfa');
+
     }
 }

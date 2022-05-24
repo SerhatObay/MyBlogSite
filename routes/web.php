@@ -12,6 +12,7 @@ Route::get('/contact', [\App\Http\Controllers\Front\ContactController::class, 'c
 
 Route::get('/postCreate', [\App\Http\Controllers\Front\PostController::class, 'index'])->name('postCreate');
 Route::post('/postCreate', [\App\Http\Controllers\Front\PostController::class, 'create'])->name('postCreatePost');
+Route::get('/delete-haber/{id}',[\App\Http\Controllers\Front\PostController::class,'remove'])->name('deletePost');
 
 
 
