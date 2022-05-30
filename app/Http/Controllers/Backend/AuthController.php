@@ -18,8 +18,13 @@ class AuthController extends Controller
     {
 
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-            return 'Başarılı'; die;
+            return redirect()->route('dashboard');
         }
             return redirect()->route('login')->withErrors('Email veya Şifre hatalı');
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
+
     }
 }
