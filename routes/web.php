@@ -25,8 +25,12 @@ Route::get('/delete-haber/{id}',[App\Http\Controllers\Front\PostController::clas
 
 
 
-Route::get('/admin/login',[App\Http\Controllers\Backend\AuthController::class,'login'])->name('login');
-Route::post('/admin/login',[App\Http\Controllers\Backend\AuthController::class,'loginPost'])->name('login.post');
+Route::prefix('admin')->middleware('isLogin')->group(function (){
+
+    Route::get('login',[App\Http\Controllers\Backend\AuthController::class,'login'])->name('login');
+    Route::post('login',[App\Http\Controllers\Backend\AuthController::class,'loginPost'])->name('login.post');
+});
+
 
 
 Route::prefix('admin')->middleware('isAdmin')->group(function (){
