@@ -75,7 +75,7 @@
                             <p>
                                 {{$post->description}}
                             </p>
-                            <a href="{{route('deletePost',$post->id)}}" class="btn btn-lg btn-outline-light mt-4">Sil</a>
+                            <a href="" class="btn btn-lg btn-outline-dark mt-4">Devamını Oku</a>
                         </div>
                     </div>
 
