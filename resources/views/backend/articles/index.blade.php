@@ -21,7 +21,7 @@
                     @foreach($posts as $post)
 
                     <tr>
-                        <td><img src="{{$post->image_url}}" width="200"></td>
+                        <td><img src="{{asset($post->image_url)}}" width="200"></td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->created_at->diffForHumans()}}</td>
                         <td>{!!$post->status==0 ? "<span class='text-danger'> Pasif</span> ": "<span class='text-success'> Aktif</span>" !!}</td>

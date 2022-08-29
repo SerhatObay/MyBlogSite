@@ -20,6 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('b_end/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('b_end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    @toastr_css
 
 </head>
 
@@ -69,7 +70,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Makale İşlemleri</h6>
                     <a class="collapse-item" href="{{route('makaleler.index')}}">Tüm Makaleler</a>
-                    <a class="collapse-item" href="cards.html">Makale Oluştur</a>
+                    <a class="collapse-item" href="{{route('makaleler.create')}}">Makale Oluştur</a>
                 </div>
             </div>
         </li>
@@ -429,6 +430,21 @@
 
 <!-- Page level custom scripts -->
 <script src="{{asset('b_end/js/demo/datatables-demo.js')}}"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#editor').summernote(
+            {
+                'height':300
+            }
+        );
+    });
+</script>
+@toastr_js
+@toastr_render
 
 </body>
 
