@@ -18,6 +18,7 @@ class Post extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('image_url');
+            $table->integer('status')->default(0)->comment('0:pasif 1:aktif');
             $table->timestamps();
         });
     }

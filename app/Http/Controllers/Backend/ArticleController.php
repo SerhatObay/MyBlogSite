@@ -16,7 +16,7 @@ class ArticleController extends Controller
     public function index()
     {
         $posts=Post::orderBy('created_at','ASC')->get();
-        return view('backend.articles.index',compact($posts));
+        return view('backend.articles.index',compact("posts"));
     }
 
     /**
