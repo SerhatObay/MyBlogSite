@@ -36,6 +36,8 @@ Route::prefix('admin')->middleware('isLogin')->group(function (){
 
 Route::prefix('admin')->middleware('isAdmin')->group(function (){
     Route::resource('makaleler',ArticleController::class);
+    Route::get('/switch','Backend\ArticleController@switch')->name('switch');
+    Route::get('/deletearticle/{id}',[ArticleController::class,'delete'])->name('delete.article');
     Route::get('dashboard',[App\Http\Controllers\Backend\DashboardController::class,'index'])->name('dashboard');
     Route::get('cikis',[App\Http\Controllers\Backend\AuthController::class,'logout'])->name('logout');
 

@@ -80,7 +80,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        return $id;
+        $posts=Post::findorFail($id);
+        return view('backend.articles.update',compact('posts'));
     }
 
     /**
@@ -92,7 +93,31 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title'=>'min:3',
+            'image'=>'|image|mimes:jpeg,png,jpg|max:2048'
+
+        ]);
+
+        $posts=Post::findOrFail($id);
+        $posts->title=$request->title;
+        $posts->description=$request->description;
+        $posts->description=$request->description;
+
+        if ($request->hasFile('image')){
+            $imageName=Str::slug($request->title).'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('uploads'),$imageName);
+            $posts->image_url='uploads/'.$imageName;
+        }
+        $posts->save();
+        toastr()->success('Makale Güncellendi!', 'Başarılı');
+        return redirect()->route('makaleler.index');
+    }
+    public function switch(Request $request){
+        $post=Post::findOrFail($request->id);
+        $post->status=$request->statu=="true" ? 1 : 0;
+        $post->save();
+
     }
 
     /**
@@ -101,6 +126,14 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function delete ($id)
+    {
+        Post::find($id)->delete();
+        return redirect()->route('makaleler.index');
+        toastr()->success('Makale Silindi', 'Başarılı');
+    }
+
     public function destroy($id)
     {
         //

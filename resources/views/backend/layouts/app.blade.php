@@ -20,7 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('b_end/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('b_end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-    @toastr_css
+
 
 </head>
 
@@ -434,6 +434,9 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#editor').summernote(
@@ -443,8 +446,18 @@
         );
     });
 </script>
-@toastr_js
-@toastr_render
+<script>
+    $(function(){
+        $('.switch').change(function (){
+            id=$(this)[0].getAttribute('article-id');
+            statu=$(this).prop('checked');
+
+            $.get("{{route('switch')}}", {id:id,statu:statu}, function(data, status){});
+
+        })
+    })
+</script>
+
 
 </body>
 
