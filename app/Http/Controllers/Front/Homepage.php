@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\About;
 use App\Models\Contact;
+use Mail;
 
 
 
