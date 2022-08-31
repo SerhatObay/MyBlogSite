@@ -47,7 +47,9 @@ class ArticleController extends Controller
         $posts=new Post;
         $posts->title=$request->title;
         $posts->description=$request->description;
-        $posts->description=$request->description;
+
+
+
 
         if ($request->hasFile('image')){
             $imageName=Str::slug($request->title).'.'.$request->image->getClientOriginalExtension();
@@ -102,7 +104,7 @@ class ArticleController extends Controller
         $posts=Post::findOrFail($id);
         $posts->title=$request->title;
         $posts->description=$request->description;
-        $posts->description=$request->description;
+
 
         if ($request->hasFile('image')){
             $imageName=Str::slug($request->title).'.'.$request->image->getClientOriginalExtension();
