@@ -4,6 +4,9 @@
 use App\Http\Controllers\Front\Homepage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ArticleController;
+use App\Http\Controllers\Backend\PersonalController;
+
+
 
 
 
@@ -41,6 +44,10 @@ Route::prefix('admin')->middleware('isAdmin')->group(function (){
     Route::get('/deletearticle/{id}',[ArticleController::class,'delete'])->name('delete.article');
     Route::get('dashboard',[App\Http\Controllers\Backend\DashboardController::class,'index'])->name('dashboard');
     Route::get('cikis',[App\Http\Controllers\Backend\AuthController::class,'logout'])->name('logout');
+
+    Route::get('/personal',[\App\Http\Controllers\Backend\PersonalController::class,'index'])->name('personal');
+    Route::post('/personal/update',[\App\Http\Controllers\Backend\PersonalController::class,'update'])->name('personal.update');
+
 
 });
 
